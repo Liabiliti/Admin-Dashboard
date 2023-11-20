@@ -2,14 +2,20 @@
     margin: 0;
     padding: 0;
     /* border: 1px solid red; */
+    font-family: 'Karla', sans-serif;;
 }
 
 :root {
-    --blue: #256eff;
-    --champagnepink: #f9dec9;
-    --powederblue: #99b2dd;
-    --melon: #e9afa3;
-    --onyx: #393e41;
+    --SecondaryColors: #D66853;
+    
+    --NeutralWhite: #FCFCFC;
+   
+    --PrimaryColor: #FBAF00;
+}
+
+p
+{
+    color: #747274;
 }
 
 .container {
@@ -17,12 +23,16 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 5fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: auto auto;
+    
 }
 
 header {
     grid-area: 1 / 2 / 2 / 3;
-    background-color: var(--champagnepink);
+    background-color: var(--NeutralWhite);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .search, .dash {
@@ -42,11 +52,18 @@ header {
 
 input[type="text"]
 {
-    background-color: var(--melon);
+    background-color: var(--NeutralWhite);
     border-radius: 20px;
     flex-grow: 1;
     margin-right: 100px;
+    padding-left: 15px;
     height: 30px;
+    outline-color: none;
+    border-color: var(--SecondaryColors);
+}
+
+input[type="text"]:focus {
+    outline-color: var(--SecondaryColors);
 }
 
 .notifications, .sml {
@@ -55,7 +72,7 @@ input[type="text"]
 
 .profile{
     border-radius: 50%;
-    border: 1px solid black;
+    background-color: var(--SecondaryColors);
 }
 
 .sml {
@@ -66,8 +83,6 @@ input[type="text"]
 .lrg {
     height: 60px;
     width: 60px;
-    
-    
 }
 
 .icon-profile {
@@ -75,7 +90,7 @@ input[type="text"]
     grid-auto-flow: column;
     align-items: center;
     justify-content: start;
-    gap: 5px;
+    gap: 10px;
 }
 
 .name {
@@ -91,14 +106,17 @@ input[type="text"]
 
 button {
     
-    background-color: var(--powederblue);
+    background-color: var(--PrimaryColor  );
     height: 40px;
     width: 100px;
     padding: 10px 20px;
-    color: var(--champagnepink);
+    color: var(--NeutralWhite);
     border-radius: 25px;;
     justify-self: end;
+    border: none;
+    font-family: inherit;
 }
+
 
 .tag {
     font-size: 22px;
@@ -108,41 +126,52 @@ button {
 
 aside {
     grid-area: 1 / 1 / 3 / 2;
-    background-color: var(--powederblue);
+    background-color: var(--PrimaryColor  );
     display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: repeat(auto-fill, 70px);
+    padding: 20px 10px;
 }
+
 
 .option, .heading {
     display: grid;
     grid-auto-flow: column;
     justify-content: start;
     align-items: center;
-    padding-left: 20px;
-    color: var(--champagnepink)
+    color: var(--NeutralWhite)
 }
 
+.option {
+    gap: 30px;
+}
 
+.heading {
+    gap: 10px;
+}
 
 .heading span {
     font-size: 40px;
-    padding-right: 20px;
-    
 }
 
 .option span {
-    padding-left: 10px;
-    padding-right: 25px;;
     font-size: 24px;
 }
 
 .option a {
     text-decoration: none;
-    color: var(--champagnepink);
+    color: var(--NeutralWhite);
 }
+
+.bottom-options {
+    align-self: end;
+}
+
 
 main {
     grid-area: 2 / 2 / 3 / 3;
-    background-color: var(--melon);
+    background-color: var(--NeutralWhite);
     display: grid;
     grid-template-columns: 2fr 1fr;
     padding: 20px;
@@ -153,6 +182,9 @@ main {
     grid-template-rows: repeat(3, 1fr);
     gap: 10px;
     padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    overflow: scroll;
 }
 
 article {
@@ -160,10 +192,10 @@ article {
     display: grid;
     gap: 10px;
     align-items: center;
-    background-color: var(--champagnepink);
-    
-    border-left: 7.5px solid var(--blue);
+    background-color: var(--NeutralWhite);
+    border-left: 7.5px solid var(--SecondaryColors);
     border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .reactions {
@@ -179,15 +211,18 @@ article {
 
 .news {
     padding-left: 20px;
+    padding-bottom: 10px;;
     display: grid;
 }
 
 .announcements-grid {
     margin-top: 10px;
     display: grid;
-    background-color: var(--champagnepink);
+    background-color: var(--NeutralWhite);
     border-radius: 10px;
     padding: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    
 }
 
 hr {
@@ -203,8 +238,9 @@ hr {
     display: grid;
     gap: 20px;
     margin-top: 10px;
-    background-color: var(--champagnepink);
+    background-color: var(--NeutralWhite);
     border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .people {
@@ -220,6 +256,10 @@ hr {
 
 .people .name {
     margin: 0;
+}
+
+span:hover, button:hover {
+    cursor: pointer;
 }
 
 
